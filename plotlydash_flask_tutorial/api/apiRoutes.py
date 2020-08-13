@@ -2,21 +2,62 @@
 from flask import render_template, jsonify
 from flask import current_app as app
 
-# import jsonify
-
 from .users import getUsersFunction, postUsersFunction
 
 
 @app.route('/api')
 def api():
-    """Landing page."""
-    return render_template(
-        'index.jinja2',
-        title='Plotly Dash Flask Tutorial',
-        description='Embed Plotly Dash into your Flask applications.',
-        template='home-template',
-        body="This is a homepage served with Flask."
-    )
+    return jsonify({
+      'routeTree1': {
+        'api': {
+          'route': '/api',
+          'methods': 'GET',
+          'childRoutes': {
+            'tasks': {
+              'route': '/api/tasks',
+              'methods': 'GET'
+            },
+            'users': {
+              'route': '/api/users',
+              'methods': 'GET'
+            },
+            'users/<string:name>': {
+              'route': '/api/users/<string:name>',
+              'methods': 'POST'
+            },
+          }
+        }
+      },
+      'routeTree2': {
+        'GET: api': [
+          'GET: tasks',
+          'GET: users',
+          'POST: users/<string:name>'
+        ]
+      },
+      'routList': [
+        {
+          'route': '/api',
+          'method': 'GET',
+          'description': 'Get API help'
+        },
+        {
+          'route': '/api/tasks',
+          'method': 'GET',
+          'description': 'Get task list'
+        },
+        {
+          'route': '/api/users',
+          'method': 'GET',
+          'description': 'Get user list'
+        },
+        {
+          'route': '/api/users/<string:name>',
+          'method': 'POST',
+          'description': 'Add a user'
+        },
+      ]
+    })
 
 @app.route('/api/tasks')
 def getTasks():
