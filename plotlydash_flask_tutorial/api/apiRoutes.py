@@ -8,33 +8,6 @@ from .users import getUsersFunction, postUsersFunction
 @app.route('/api')
 def api():
     return jsonify({
-      'routeTree1': {
-        'api': {
-          'route': '/api',
-          'methods': 'GET',
-          'childRoutes': {
-            'tasks': {
-              'route': '/api/tasks',
-              'methods': 'GET'
-            },
-            'users': {
-              'route': '/api/users',
-              'methods': 'GET'
-            },
-            'users/<string:name>': {
-              'route': '/api/users/<string:name>',
-              'methods': 'POST'
-            },
-          }
-        }
-      },
-      'routeTree2': {
-        'GET: api': [
-          'GET: tasks',
-          'GET: users',
-          'POST: users/<string:name>'
-        ]
-      },
       'routList': [
         {
           'route': '/api',
@@ -58,6 +31,34 @@ def api():
         },
       ]
     })
+
+    # 'routeTree1': {
+    #     'api': {
+    #       'route': '/api',
+    #       'methods': 'GET',
+    #       'childRoutes': {
+    #         'tasks': {
+    #           'route': '/api/tasks',
+    #           'methods': 'GET'
+    #         },
+    #         'users': {
+    #           'route': '/api/users',
+    #           'methods': 'GET'
+    #         },
+    #         'users/<string:name>': {
+    #           'route': '/api/users/<string:name>',
+    #           'methods': 'POST'
+    #         },
+    #       }
+    #     }
+    #   },
+    #   'routeTree2': {
+    #     'GET: api': [
+    #       'GET: tasks',
+    #       'GET: users',
+    #       'POST: users/<string:name>'
+    #     ]
+    #   },
 
 @app.route('/api/tasks')
 def getTasks():
