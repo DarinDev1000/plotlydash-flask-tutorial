@@ -1,1 +1,1 @@
-nodemon --exec bash start.sh
+nodemon --exec zsh start.sh

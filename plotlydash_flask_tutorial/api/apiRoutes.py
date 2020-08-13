@@ -8,7 +8,7 @@ from .users import getUsersFunction, postUsersFunction
 @app.route('/api')
 def api():
     return jsonify({
-      'routList': [
+      'routeList': [
         {
           'route': '/api',
           'method': 'GET',
@@ -93,8 +93,3 @@ def postUsers(name):
     newUser = postUsersFunction(name)
     # return { 'message': f'{name} added', 'newUser': newUser }
     return jsonify(message=f'{name} added', newUser=newUser )
-
-# @app.route('/users/<string:name>', methods=['POST'])
-# def addUserByName(name):
-#     usersList.append(name)
-#     return jsonify({ 'message': 'New user added'  })
