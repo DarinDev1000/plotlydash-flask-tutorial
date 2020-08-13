@@ -12,6 +12,7 @@ def create_app():
 
     with app.app_context():
         # Import parts of our core Flask app
+        from .api import apiRoutes
         from . import routes
         from .assets import compile_static_assets
 

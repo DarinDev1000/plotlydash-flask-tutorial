@@ -26,7 +26,7 @@ Make Plotly Dash part of your Flask Application by following this example.
 ```shell
 $ git clone https://github.com/toddbirchard/plotlydash-flask-tutorial.git
 $ cd plotlydash-flask-tutorial
-$ python3 -m venv myenv
+$ python3 -m venv venv
 $ source myenv/bin/activate
 $ pip3 install -r requirements.txt
 $ flask run
