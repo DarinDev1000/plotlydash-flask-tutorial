@@ -4,6 +4,7 @@ from flask import current_app as app
 
 from .users import getUsersFunction, postUsersFunction
 
+import datetime
 
 @app.route('/api')
 def api():
@@ -28,6 +29,11 @@ def api():
           'route': '/api/users/<string:name>',
           'method': 'POST',
           'description': 'Add a user'
+        },
+        {
+          'route': '/api/time',
+          'method': 'GET',
+          'description': 'Get current time'
         },
       ]
     })
@@ -93,3 +99,8 @@ def postUsers(name):
     newUser = postUsersFunction(name)
     # return { 'message': f'{name} added', 'newUser': newUser }
     return jsonify(message=f'{name} added', newUser=newUser )
+
+@app.route('/api/time')
+def getTime():
+    time = datetime.datetime.now()
+    return {'time': time}
