@@ -38,6 +38,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry.scripts]
 run = "wsgi:app"
+start = "scripts:start"
 
 [tool.poetry.urls]
 issues = "https://github.com/toddbirchard/plotlydash-flask-tutorial/issues"
